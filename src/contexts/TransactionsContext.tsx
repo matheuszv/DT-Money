@@ -1,7 +1,7 @@
 import { createContext, ReactNode, useEffect, useState } from "react"
 
 interface Transaction {
-    id: number,
+    id: string,
     description: string,
     type: 'income' | 'outcome',
     price: number,
@@ -41,11 +41,12 @@ export function TransactionsProvider({children}: TransactionsProvider){
         
         const response = await fetch(url)
         const data = await response.json()
-
         setTransactions(data);
     }
 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     async function createTransactions(data: createTransactions){
+        console.log(data)
         const newTrasaction = {
             description: data.description,
             price: data.price,
@@ -53,6 +54,7 @@ export function TransactionsProvider({children}: TransactionsProvider){
             type: data.type,
             createdAt: new Date(),
         }
+        console.log(newTrasaction)
         await fetch("http://localhost:3000/transatations", {
         
             method: "POST",
@@ -67,7 +69,7 @@ export function TransactionsProvider({children}: TransactionsProvider){
             return response.json()
           })
           .then(responseData => {
-            setTransactions(responseData) 
+            console.log(responseData)
           })
           .catch(error => {
             console.error('Erro:', error);
@@ -76,7 +78,7 @@ export function TransactionsProvider({children}: TransactionsProvider){
 
     useEffect(() => {
      fetchTransactions()
-    }, [])
+    }, [createTransactions])
     
     return (
         <TransactionContext.Provider value={{transactions, fetchTransactions, createTransactions}}>

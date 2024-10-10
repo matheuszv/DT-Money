@@ -7,7 +7,7 @@ import { TransactionContext } from "../../contexts/TransactionsContext"
 import { dateFormmater } from "../../utils/fommarts"
 
 interface Transaction {
-    id: number,
+    id: string,
     description: string,
     type: 'income' | 'outcome',
     price: number,
@@ -29,6 +29,7 @@ export function Transaction(){
                 <TransactionTable>
                     <tbody>
                     {transactions.map(transaction => {
+
                         return (
                             <tr key={transaction.id}>
                                 <td width="55%">{transaction.description}</td>
