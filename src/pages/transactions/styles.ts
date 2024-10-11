@@ -24,14 +24,14 @@ export const TransactionTable = styled.table`
     border-spacing: 0 0.5rem;
     margin-top: 1.5rem;
     overflow-y: scroll;
-    max-height: 33.5rem;
+    max-height: 29rem;
     display: block;
-    
-   @media ${media.mobile} {
+
+
+    @media ${media.mobile} {
         tbody{
             display: none;
         }
-        
    }
 
     td{
