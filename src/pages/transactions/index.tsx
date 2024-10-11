@@ -5,6 +5,7 @@ import { SearchForm } from "./components/SearchForm"
 import { PriceHighLight, TransactionContainer, TransactionTable } from "./styles"
 import { TransactionContext } from "../../contexts/TransactionsContext"
 import { dateFormmater } from "../../utils/fommarts"
+import { Trash } from "phosphor-react"
 
 interface Transaction {
     id: string,
@@ -18,7 +19,7 @@ interface Transaction {
 
 export function Transaction(){
 
-    const { transactions } = useContext(TransactionContext)
+    const { transactions, deleteTransactions } = useContext(TransactionContext)
 
     return(
         <div>
@@ -40,6 +41,7 @@ export function Transaction(){
                                 </td>
                                 <td>{transaction.category}</td>
                                 <td>{dateFormmater(transaction.createdAt)}</td>
+                                <td><button onClick={() => deleteTransactions(transaction.id)}><Trash size={22}/></button> </td>
                             </tr>
                         )
                     })}
