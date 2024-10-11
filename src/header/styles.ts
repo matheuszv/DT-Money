@@ -2,6 +2,15 @@ import styled from "styled-components"
 import * as Dialog from '@radix-ui/react-dialog'
 import * as RadioGroup from '@radix-ui/react-radio-group'
 
+const sizes = {
+    mobile: '880px',
+  };
+  
+  const media = {
+    mobile: `(max-width: ${sizes.mobile})`,
+}
+
+
 export const HeaderContainer = styled.header`
     background: ${props => props.theme["gray-900"]};
     padding: 2.5rem 0 7.5rem 0;
@@ -17,6 +26,12 @@ export const HeaderContent = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    img{
+        @media ${media.mobile} {
+           width: 8rem;
+        }
+    }
 `
 
 export const NewTransactionButton = styled.button`
@@ -33,6 +48,13 @@ export const NewTransactionButton = styled.button`
         background: ${props => props.theme["green-700"]};
         transition: background-color 0.2s;
     }
+
+    @media ${media.mobile} {
+        font-size: 0.75rem;
+        padding: 0 1rem;
+        height: 40px;
+    }
+
 `
 
 

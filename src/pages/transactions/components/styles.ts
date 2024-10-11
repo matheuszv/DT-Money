@@ -1,8 +1,18 @@
 import styled from "styled-components"
 
+
+const sizes = {
+    mobile: '880px',
+  }
+  
+  const media = {
+    mobile: `(max-width: ${sizes.mobile})`,
+}
+
 export const SearchFormContainer = styled.form`
     display: flex;
     gap: 1rem;
+    
 
     input {
         flex: 1;
@@ -32,6 +42,12 @@ export const SearchFormContainer = styled.form`
         color: ${props => props.theme["green-300"]};
         cursor: pointer;
 
+
+        @media ${media.mobile} {
+            p {
+                display: none;
+            }  
+        }
         
         &:disabled{
             opacity: 0.6;
@@ -44,5 +60,8 @@ export const SearchFormContainer = styled.form`
             color: ${props => props.theme.white};
             transition: background-color 0.3s, color 0.3s, border-color 0.3s; 
         }
+
+        
+
     }
 `

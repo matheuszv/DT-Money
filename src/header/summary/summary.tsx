@@ -32,21 +32,21 @@ export function Summary(){
 
     return(
      <SummaryContainer>
-        <SummaryCard>
+        <SummaryCard id="enter">
             <header>
                 <span>Entradas</span>
                 <ArrowCircleUp size={32} color="#00b37e"/>
             </header>
             <strong>{moneyToString(summary.income)}</strong>
         </SummaryCard>
-        <SummaryCard>
+        <SummaryCard id="exit">
             <header>
                 <span>Saídas</span>
                 <ArrowCircleDown size={32} color="#f75a68"/>
             </header>
             <strong>{moneyToString(summary.outcome)}</strong>
         </SummaryCard>
-        <SummaryCard variant="green">
+        <SummaryCard variant="green" id="total">
             <header>
                 <span>Total</span>
                 <CurrencyDollar size={32} color="#fff"/>

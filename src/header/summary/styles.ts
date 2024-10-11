@@ -1,5 +1,15 @@
-import styled from "styled-components";
+import styled from "styled-components"
 import { css } from "styled-components"
+
+
+const sizes = {
+    mobile: '880px',
+  };
+  
+  const media = {
+    mobile: `(max-width: ${sizes.mobile})`,
+};
+
 
 export const SummaryContainer = styled.section`
     width: 100%;
@@ -12,6 +22,12 @@ export const SummaryContainer = styled.section`
     gap: 2rem;
 
     margin-top: -5rem;
+
+    
+    @media ${media.mobile} {
+        overflow-x: scroll;
+    }
+
 `
 
 interface SummaryCardProps {
@@ -35,6 +51,7 @@ export const SummaryCard = styled.div<SummaryCardProps>`
         margin-top: 1rem;
         font-size: 2rem;
     }
+
 
    ${props => props.variant == 'green' && css`
         background: ${props.theme["green-700"]};

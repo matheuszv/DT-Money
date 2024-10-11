@@ -1,10 +1,19 @@
 import styled from "styled-components"
 
+// const sizes = {
+//     mobile: '880px',
+//   };
+  
+//   const media = {
+//     mobile: `(max-width: ${sizes.mobile})`,
+// }
+
 export const TransactionContainer = styled.main`
     width: 100%;
     max-width: 1120px;
     margin: 4rem auto 4rem;
     padding: 0 1.5rem;
+
 `
 
 export const TransactionTable = styled.table`
