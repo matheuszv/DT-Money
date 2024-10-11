@@ -2,10 +2,10 @@ import { useContext } from "react"
 import { Header } from "../../header/header"
 import { Summary } from "../../header/summary/summary"
 import { SearchForm } from "./components/SearchForm"
-import { PriceHighLight, TransactionContainer, TransactionTable } from "./styles"
+import { PriceHighLight, TransactionContainer, TransactionsFooter, TransactionsOnes, TransactionsTitle, TransactionTable, TrasactionDiv } from "./styles"
 import { TransactionContext } from "../../contexts/TransactionsContext"
 import { dateFormmater } from "../../utils/fommarts"
-import { Trash } from "phosphor-react"
+import { CalendarBlank, TagSimple, Trash } from "phosphor-react"
 
 interface Transaction {
     id: string,
@@ -18,10 +18,12 @@ interface Transaction {
 
 
 export function Transaction(){
+    
 
     const { transactions, deleteTransactions } = useContext(TransactionContext)
 
     return(
+        
         <div>
             <Header/>
             <Summary/>
@@ -33,8 +35,8 @@ export function Transaction(){
 
                         return (
                             <tr key={transaction.id}>
-                                <td width="55%">{transaction.description}</td>
-                                <td>
+                                <td width="50%">{transaction.description}</td>
+                                <td id="type">
                                     <PriceHighLight variant={transaction.type}>
                                         {transaction.type=='income' ? 'R$ ' + transaction.price : '– R$ ' + transaction.price}
                                     </PriceHighLight>
@@ -47,6 +49,26 @@ export function Transaction(){
                     })}
                     </tbody>
                 </TransactionTable>
+                <TrasactionDiv>
+                    {transactions.map(transaction => {
+                                return(
+                                    <TransactionsOnes key={transaction.id}>
+                                        <TransactionsTitle>
+                                            <span>{transaction.description}</span>
+                                            <button onClick={() => deleteTransactions(transaction.id)}><Trash size={22}/></button>
+                                        </TransactionsTitle>
+                                        <PriceHighLight variant={transaction.type}>
+                                            {transaction.type=='income' ? 'R$ ' + transaction.price : '– R$ ' + transaction.price}
+                                        </PriceHighLight>
+                                        <TransactionsFooter>
+                                            <span><TagSimple size={16} /> {transaction.category}</span>
+                                            <span><CalendarBlank size={16} /> {dateFormmater(transaction.createdAt)}</span>
+                                        </TransactionsFooter>
+                                    </TransactionsOnes>
+                                )
+                            })
+                        }
+                </TrasactionDiv>
             </TransactionContainer>
         </div>
     )

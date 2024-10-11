@@ -67,7 +67,7 @@ export const Overlay = styled(Dialog.Overlay)`
 `
 
 export const Content = styled(Dialog.Content)`
-    min-width: 18rem;
+    min-width: 30rem;
     border-radius: 6px;
     padding: 2.5rem 3rem;
     background: ${props => props.theme["gray-800"]};
@@ -79,6 +79,7 @@ export const Content = styled(Dialog.Content)`
 
     @media ${media.mobile} {
         padding: 2rem 2.4rem;
+        min-width: 18rem;
     }
 
     form {
