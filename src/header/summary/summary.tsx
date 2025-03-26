@@ -34,14 +34,14 @@ export function Summary(){
      <SummaryContainer>
         <SummaryCard id="enter">
             <header>
-                <span>Entradas</span>
+                <span>Income</span>
                 <ArrowCircleUp size={32} color="#00b37e"/>
             </header>
             <strong>{moneyToString(summary.income)}</strong>
         </SummaryCard>
         <SummaryCard id="exit">
             <header>
-                <span>Saídas</span>
+                <span>Outcome</span>
                 <ArrowCircleDown size={32} color="#f75a68"/>
             </header>
             <strong>{moneyToString(summary.outcome)}</strong>
