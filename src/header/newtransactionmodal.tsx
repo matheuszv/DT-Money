@@ -49,11 +49,11 @@ export function NewTransactionModal(){
                 </CloseButton>
 
                 <form onSubmit={handleSubmit(handleCreateNewTransaction)}>
-                    <input type="text" placeholder="Descrição" required
+                    <input type="text" placeholder="Description" required
                     {...register('description')}/>
-                    <input type="number" placeholder="Valor" required
+                    <input type="number" placeholder="Value" required
                     {...register('price', {valueAsNumber: true})}/>
-                    <input type="text" placeholder="Categoria" required
+                    <input type="text" placeholder="Category" required
                     {...register('category', )}/>
 
                     <Controller
@@ -64,11 +64,11 @@ export function NewTransactionModal(){
                             <TransactionType onValueChange={field.onChange} value={field.value}>
                                 <TransactionTypeButton variant="income" value="income">
                                     <ArrowCircleUp size={24}/>
-                                    Entrada
+                                    Income
                                 </TransactionTypeButton>
                                 <TransactionTypeButton variant="outcome" value="outcome">
                                     <ArrowCircleDown size={24}/>
-                                    Saída
+                                    Outcome
                                 </TransactionTypeButton>
                             </TransactionType>
                         )
@@ -76,7 +76,7 @@ export function NewTransactionModal(){
                     
 
                     <button type="submit" disabled={isSubmitting}>
-                        Cadastrar
+                        Submit
                     </button>
                 </form>
             </Content>
