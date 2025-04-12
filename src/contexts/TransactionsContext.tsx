@@ -55,7 +55,7 @@ export function TransactionsProvider({children}: TransactionsProvider){
             createdAt: new Date(),
         }
         console.log(newTrasaction)
-        await fetch("https://dt-money-backend.onrender.com/transatations", {
+        await fetch("https://dt-money-back-end.vercel.app/api/transatations", {
         
             method: "POST",
             headers: {
@@ -78,7 +78,7 @@ export function TransactionsProvider({children}: TransactionsProvider){
     }
 
     async function deleteTransactions(id: string){
-        const url = new URL(`https://dt-money-backend.onrender.com/transatations/${id}`)
+        const url = new URL(`https://dt-money-back-end.vercel.app/api/transatations/${id}`)
 
         await fetch(url, {
             method: 'DELETE',
