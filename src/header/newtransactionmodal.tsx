@@ -35,6 +35,7 @@ export function NewTransactionModal(){
         await createTransactions(data)
 
         reset()
+        
     }
 
     return (
@@ -74,10 +75,12 @@ export function NewTransactionModal(){
                         )
                      }}/>
                     
+                    <Dialog.Close asChild>
+                        <button type="submit" disabled={isSubmitting}>
+                            Submit
+                        </button>
+                    </Dialog.Close>
 
-                    <button type="submit" disabled={isSubmitting}>
-                        Submit
-                    </button>
                 </form>
             </Content>
         </Dialog.Portal>

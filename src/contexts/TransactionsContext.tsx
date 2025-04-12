@@ -46,7 +46,6 @@ export function TransactionsProvider({children}: TransactionsProvider){
     }
 
     async function createTransactions(data: createTransactions){
-        console.log(data)
         const newTrasaction = {
             description: data.description,
             price: data.price,
@@ -54,7 +53,6 @@ export function TransactionsProvider({children}: TransactionsProvider){
             type: data.type,
             createdAt: new Date(),
         }
-        console.log(newTrasaction)
         await fetch("https://dt-money-back-end.vercel.app/api/transatations", {
         
             method: "POST",
