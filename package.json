@@ -3,11 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "main": "index.js",
-  "engines": {
-    "node": "20.x"
-  },
-  "scripts": {
+    "scripts": {
     "dev": "vite",
     "start": "node index.js",
     "dev:server": "json-server server.json",
